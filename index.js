@@ -1,3 +1,17 @@
+const express = require('express')
+const bodyParser = require("body-parser");
+
+const app = express()
+const port = 8080
+app.listen(port, function(){
+console.log(`Your App Listen To ${port} Port`)
+})
+app.use(express.static(__dirname + '/public'));
+const ejs = require('ejs')
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
 app.get('/', async function(req,res){
 res.render('index.ejs')
 
